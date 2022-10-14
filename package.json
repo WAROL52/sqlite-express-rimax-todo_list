@@ -16,6 +16,6 @@
     "prisma": "^4.4.0"
   },
   "scripts": {
-    "start": "yarn nodemon index.js"
+    "start": "nodemon index.js"
   }
 }
