@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script src="rimax/rimax.global.min.js"></script>
+    <title>
+        <%= titre %>
+    </title>
+    <script>
+        var tabActive = "<%= tabActive %>"
+    </script>
+</head>
+
+<body>
+    <section class="vh-100" style="background-color: #e2d5de;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col col-xl-10">
+                    <div class="card" style="border-radius: 15px;">
+                        <ul class="nav nav-tabs">
+                            <% ["all","active","completed"].forEach(element=> { %>
+                                <li class="nav-item">
+                                    <% if (tabActive=="todo-" +element) { %>
+                                        <a class="nav-link active" aria-current="page" href="<%= " todo-"+element %>">
+                                            <%= element %>
+                                        </a>
+                                        <% } else { %>
+                                            <a class="nav-link " aria-current="page" href="<%= " todo-"+element %>"><%=
+                                                    element %></a>
+                                            <% } %>
+                                </li>
+                                <% }) %>
+                        </ul>
+                        <div class="card-body p-5">
+                            <h6 class="mb-3 d-flex">Awesome Todo List
+                                <div id="spinner-add-todo">
+
+                                </div>
+                            </h6>
+                            <form class="d-flex form-group justify-content-center align-items-center mb-4" id="AppForm">
+
+                            </form>
+                            <div id="todo-sort">
+                            </div>
+                            <ul class="list-group mb-0" id="listTodo">
+                                <div id="div-placeholder">
+                                    <span class="placeholder" style="width: 25%;"></span><br>
+                                    <span class="placeholder" style="width: 80%;"></span>
+                                    <span class="placeholder" style="width: 75%;"></span>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>
